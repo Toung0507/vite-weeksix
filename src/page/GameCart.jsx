@@ -80,7 +80,7 @@ function GameCart() {
     };
 
     // 刪除某筆預定資料
-    const delOneCart = async (id) => {
+    const delCartItem = async (id) => {
         setIsAllscreenLoading(true);
         try {
             await axios.delete(`${baseApi}/v2/api/${apiPath}/cart/${id}`);
@@ -201,7 +201,7 @@ function GameCart() {
                                             {cardData.carts?.map((cardItem) => (
                                                 <tr key={cardItem.id}>
                                                     <td>
-                                                        <button onClick={() => delOneCart(cardItem.id)} type="button" className="btn btn-outline-danger btn-sm">
+                                                        <button onClick={() => delCartItem(cardItem.id)} type="button" className="btn btn-outline-danger btn-sm">
                                                             x
                                                         </button>
                                                     </td>
@@ -342,7 +342,7 @@ function GameCart() {
 
                                         })}
                                         id="tel"
-                                        type="text"
+                                        type="tel"
                                         className={`form-control ${errors.tel && 'is-invalid'} `}
                                         placeholder="請輸入電話"
                                     />
